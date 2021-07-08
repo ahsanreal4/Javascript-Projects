@@ -3,6 +3,8 @@
 //It keeps copying data as JSON objects into an array until there are no more pages left. 
 //It will automatically change pages to copy data for next page.
 
+//To use this script go to the website link and just paste this link in the console and press enter thats it! 
+
 //Runs best at 2 to 3 sec
 //1 or 2 minor errors on 1.5 sec
 //A lot of errors on 1 sec
