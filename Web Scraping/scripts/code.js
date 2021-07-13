@@ -24,6 +24,7 @@ var ulChilds = ul[0].children;
 var array = [];
 var i = 0;
 var r = 2;
+
 var run = true;
 var interval = setInterval(function() { 
 if(i < tr.length) {
@@ -34,7 +35,11 @@ var h = a[0]
 h.click();
 i++;
 add_values(td);
-}else if(r<(ulChilds.length )) { 
+}
+else if(nav.style.display === "none"){
+clearInterval(interval);
+}
+else if(ulChilds[r].className === "page-item") { 
 if(run == true){
 var li = ulChilds[r].children;
 var a2 = li[0];
@@ -70,18 +75,21 @@ var modalChild = modal[0].children;
 var modalBody = modalChild[1].children;
 var document2 = modalBody[1].children;
 var iFrame = document2[0];
-var iDoc = iFrame.contentWindow.document;
-var inputs = iDoc.body.children;
-// console.log(inputs);
-var inputs2 = inputs[0].innerText;
-let data2 = [];
-data2.push(inputs2);
+
+var $frame = $("#ipreviewer");
+var sects =  $frame.contents().find(".sect-efts-search-match-khjdickkwg");
+var data2 = [];
+
+for(let i = 0;i<sects.length;i++){
+data2.push(sects[i].parentElement.innerText);
+}
 
 var footer = modalChild[2].children;
 footer[2].click();
 
 var JSON = {FormAndFile:td[0].textContent,filed:td[1].textContent,reportingFor:td[2].textContent,filedEntityPerson:td[3].textContent,data:data2};
 array.push(JSON);
+console.log(array);
 } ,time/2);
 
 }
